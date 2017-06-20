@@ -8703,98 +8703,186 @@
 
 	'use strict';
 
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 	{
-		//es6 函数新增参数默认值,默认值后不可有没有默认值的参数
-		var test = function test(x) {
-			var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'world';
-
-			console.log('默认值', x, y);
-		};
-
-		test('hello');
-		test('hello', 'kill');
+		//set 内容不允许重复,重复元素不会生效
+		var set = new Set();
+		//set 添加内容使用 .add
+		set.add(5);
+		set.add(7);
+		//set 内容的数目 .size
+		console.log('size', set.size);
 	}
 
 	{
-		var test2 = function test2(x) {
-			var y = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : x;
-
-			console.log('作用域', x, y);
-		};
-
-		var x = "test";
-
-		test2('kill');
+		var arr = [1, 2, 3, 4, 5, 6];
+		var _set = new Set(arr);
+		console.log('size2', _set.size);
 	}
 
 	{
-		//将数列转化为数组
-		var test3 = function test3() {
-			for (var _len = arguments.length, arg = Array(_len), _key = 0; _key < _len; _key++) {
-				arg[_key] = arguments[_key];
+		//过滤重复时需要考虑数据类型
+		var _arr = [1, 2, 3, 2, '1', 4];
+		var _set2 = new Set(_arr);
+
+		console.log('unique', _set2);
+	}
+
+	{
+		var _arr2 = ['add', 'delete', 'clear', 'has'];
+		var list = new Set(_arr2);
+		//查询是否存在
+		console.log('has', list.has('add'));
+		//删除元素
+		console.log('delete', list.delete('add'));
+		//清空元素
+		list.clear();
+		console.log(list);
+	}
+
+	{
+		var _arr3 = ['add', 'delete', 'clear', 'has'];
+		var _list = new Set(_arr3);
+
+		//获取keys以及values ~~. .values()可以省略.
+		var _iteratorNormalCompletion = true;
+		var _didIteratorError = false;
+		var _iteratorError = undefined;
+
+		try {
+			for (var _iterator = _list.keys()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+				var key = _step.value;
+
+				console.log('key', key);
 			}
-
-			var _iteratorNormalCompletion = true;
-			var _didIteratorError = false;
-			var _iteratorError = undefined;
-
+		} catch (err) {
+			_didIteratorError = true;
+			_iteratorError = err;
+		} finally {
 			try {
-				for (var _iterator = arg[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-					var v = _step.value;
-
-					console.log('rest', v);
+				if (!_iteratorNormalCompletion && _iterator.return) {
+					_iterator.return();
 				}
-			} catch (err) {
-				_didIteratorError = true;
-				_iteratorError = err;
 			} finally {
-				try {
-					if (!_iteratorNormalCompletion && _iterator.return) {
-						_iterator.return();
-					}
-				} finally {
-					if (_didIteratorError) {
-						throw _iteratorError;
-					}
+				if (_didIteratorError) {
+					throw _iteratorError;
 				}
 			}
-		};
+		}
 
-		test3(1, 2, 3, 4, 'a');
+		var _iteratorNormalCompletion2 = true;
+		var _didIteratorError2 = false;
+		var _iteratorError2 = undefined;
+
+		try {
+			for (var _iterator2 = _list.values()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+				var value = _step2.value;
+
+				console.log('value', value);
+			}
+		} catch (err) {
+			_didIteratorError2 = true;
+			_iteratorError2 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion2 && _iterator2.return) {
+					_iterator2.return();
+				}
+			} finally {
+				if (_didIteratorError2) {
+					throw _iteratorError2;
+				}
+			}
+		}
+
+		var _iteratorNormalCompletion3 = true;
+		var _didIteratorError3 = false;
+		var _iteratorError3 = undefined;
+
+		try {
+			for (var _iterator3 = _list[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+				var _value = _step3.value;
+
+				console.log('value', _value);
+			}
+		} catch (err) {
+			_didIteratorError3 = true;
+			_iteratorError3 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion3 && _iterator3.return) {
+					_iterator3.return();
+				}
+			} finally {
+				if (_didIteratorError3) {
+					throw _iteratorError3;
+				}
+			}
+		}
+
+		var _iteratorNormalCompletion4 = true;
+		var _didIteratorError4 = false;
+		var _iteratorError4 = undefined;
+
+		try {
+			for (var _iterator4 = _list.entries()[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+				var _step4$value = _slicedToArray(_step4.value, 2),
+				    _key = _step4$value[0],
+				    _value2 = _step4$value[1];
+
+				console.log('entries', _value2, _key);
+			}
+		} catch (err) {
+			_didIteratorError4 = true;
+			_iteratorError4 = err;
+		} finally {
+			try {
+				if (!_iteratorNormalCompletion4 && _iterator4.return) {
+					_iterator4.return();
+				}
+			} finally {
+				if (_didIteratorError4) {
+					throw _iteratorError4;
+				}
+			}
+		}
+
+		console.log('foreach');
+		_list.forEach(function (item) {
+			console.log(item);
+		});
 	}
 
 	{
-		var _console, _console2;
-
-		//将数组打散
-		(_console = console).log.apply(_console, [1, 2, 4]);
-		(_console2 = console).log.apply(_console2, ['a'].concat([1, 2, 4]));
+		//WeakSet可以应用于对象
+		var weakList = new WeakSet();
+		var arg = {};
+		weakList.add(arg);
+		//没有clear,size方法,不能遍历
+		console.log('weakList', weakList);
 	}
 
 	{
-		//v是参数=>之后是返回值;
-		var arrow = function arrow(v) {
-			return v * 2;
-		};
-		var arrow2 = function arrow2() {
-			return 5;
-		};
-
-		console.log(arrow(3));
-		console.log(arrow2());
+		var map = new Map();
+		var _arr4 = ['123'];
+		//map添加使用set()
+		map.set(_arr4, 456);
+		//map.get(arr) 获取arr的值
+		console.log('map', map, map.get(_arr4));
 	}
 
 	{
-		//尾调用
-		var tail = function tail(x) {
-			console.log('tail', x);
-		};
+		var _map = new Map([['a', 123], ['b', 456]]);
+		console.log(_map);
 
-		var fx = function fx(x) {
-			return tail(x);
-		};
+		console.log('size', _map.size);
+		console.log('delete', _map.delete('a'), _map);
+		console.log('clear', _map.clear(), _map);
+	}
 
-		fx(123);
+	{
+		var weakmap = new WeakMap();
 	}
 
 /***/ })
