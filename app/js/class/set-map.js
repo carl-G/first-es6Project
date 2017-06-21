@@ -46,7 +46,6 @@
 	for(let value of list.values()) {
 		console.log('value',value);
 	}
-
 	for(let value of list) {
 		console.log('value',value);
 	}
