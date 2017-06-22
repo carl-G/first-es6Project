@@ -1,2 +1,2 @@
 import 'babel-polyfill';
-import './class/proxy-reflect';
+import './class/promise';
