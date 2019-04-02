@@ -1,2 +1,3 @@
 # first-es6Project
-My first es6 project,This is my learn es6's project ~~...
+
+first-es6Project
