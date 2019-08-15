@@ -1,3 +1,3 @@
-# first-es6Project
+# es6Project
 
-first-es6Project
+es6Project
